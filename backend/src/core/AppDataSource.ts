@@ -1,3 +1,9 @@
+import Client from "$server/entities/Client.js";
+import ClientContactDetail from "$server/entities/ClientContactDetail.js";
+import Invoice from "$server/entities/Invoice.js";
+import Item from "$server/entities/Item.js";
+import Supplier from "$server/entities/Supplier.js";
+import SupplierContactDetail from "$server/entities/SupplierContactDetail.js";
 import { DataSource } from "typeorm";
 
 const AppDataSource = new DataSource({
@@ -9,7 +15,14 @@ const AppDataSource = new DataSource({
   password: process.env.DB_PASSWORD,
   logging: false,
   synchronize: false,
-  entities: [],
+  entities: [
+    Client,
+    ClientContactDetail,
+    Supplier,
+    SupplierContactDetail,
+    Item,
+    Invoice
+  ],
   migrations: ["backend/migrations/{**,*}.{js,ts}"]
 });
 

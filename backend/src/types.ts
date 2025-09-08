@@ -12,4 +12,15 @@ declare global {
   }
 }
 
-export { };
+interface ContactDetail {
+  street: string;
+  city: string;
+  postalCode: string;
+  landlinePhone: string | null;
+  cellPhone: string | null;
+  email: string | null;
+}
+
+export type {
+  ContactDetail
+};

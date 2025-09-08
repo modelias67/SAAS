@@ -8,7 +8,12 @@ function runServer(): void {
 
   app.route("/api/v1", apiRouter);
 
-  const server = serve({ fetch: app.fetch, port: +process.env.PORT }, ({ port }) => {
+  const serverOptions: ServerOptions = {
+    fetch: app.fetch,
+    port: +process.env.PORT
+  };
+
+  const server = serve(serverOptions, ({ port }) => {
     const url = chalk.yellow(`http://localhost:${port}`);
     console.log(`App running at ${url}...`);
   });
@@ -22,3 +27,5 @@ function runServer(): void {
 export {
   runServer
 };
+
+type ServerOptions = Parameters<typeof serve>[0];

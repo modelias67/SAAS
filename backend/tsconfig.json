@@ -12,12 +12,16 @@
     "verbatimModuleSyntax": true,
     "noImplicitAny": true,
     "forceConsistentCasingInFileNames": true,
+    "strictPropertyInitialization": false,
     /* path aliases */
     "baseUrl": "src",
     "paths": {
       "$server/*": [
         "./*"
       ]
-    }
+    },
+    /* TypeORM */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   }
 }
