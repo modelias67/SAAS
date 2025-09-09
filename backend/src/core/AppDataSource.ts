@@ -1,6 +1,6 @@
 import Client from "$server/entities/Client.js";
 import ClientContactDetail from "$server/entities/ClientContactDetail.js";
-import Invoice from "$server/entities/Invoice.js";
+import Invoice from "$server/entities/Invoice/Invoice.js";
 import Item from "$server/entities/Item.js";
 import Supplier from "$server/entities/Supplier.js";
 import SupplierContactDetail from "$server/entities/SupplierContactDetail.js";

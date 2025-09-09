@@ -10,7 +10,10 @@ export default class Supplier {
   @Column({ type: "varchar", length: 255 })
   public name: string;
 
-  @OneToOne("SupplierContactDetail", "supplier", { cascade: true })
+  @OneToOne("SupplierContactDetail", "supplier", {
+    cascade: true,
+    onDelete: "CASCADE"
+  })
   public contactDetail: SupplierContactDetail;
 
   @OneToMany("Item", "supplier")

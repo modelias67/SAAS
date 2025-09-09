@@ -1,5 +1,12 @@
 import type Supplier from "$server/entities/Supplier.js";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn
+} from "typeorm";
 
 @Entity()
 export default class Item {
@@ -12,6 +19,15 @@ export default class Item {
   @Column({ type: "text" })
   public commercialDesignation: string;
 
-  @ManyToOne("Supplier", "items")
+  @CreateDateColumn()
+  public createdAt: Date;
+
+  @UpdateDateColumn()
+  public updatedAt: Date;
+
+  @ManyToOne("Supplier", "items", {
+    nullable: true,
+    onDelete: "SET NULL"
+  })
   public supplier: Supplier | null;
 }

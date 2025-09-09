@@ -21,6 +21,34 @@ interface ContactDetail {
   email: string | null;
 }
 
+interface HeatPump {
+  type: string;
+  /**
+   * float
+   */
+  /**
+ * Cycle de soutirage.
+ */
+  drawoffCycle: string;
+  nominalPower: number;
+  /**
+   * float
+   */
+  powerEfficiency: number;
+  /**
+   * - COP: coefficient de performance
+   * - = kWh énergie produite / kWh énergie consommée
+   * - float
+   */
+  coefficientOfPerformance: number;
+  /**
+   * float
+   */
+  ETAS: number;
+
+}
+
 export type {
-  ContactDetail
+  ContactDetail,
+  HeatPump
 };

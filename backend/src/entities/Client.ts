@@ -1,5 +1,5 @@
 import type ClientContactDetail from "$server/entities/ClientContactDetail.js";
-import type Invoice from "$server/entities/Invoice.js";
+import type Invoice from "$server/entities/Invoice/Invoice.js";
 import {
   Column,
   Entity,
@@ -28,7 +28,10 @@ export default class Client {
   @Column({ type: "varchar", length: 25 })
   public prospectiveStatus: ClientProspectiveStatus;
 
-  @OneToOne("ClientContactDetail", "client", { cascade: true })
+  @OneToOne("ClientContactDetail", "client", {
+    cascade: true,
+    onDelete: "CASCADE"
+  })
   public contactDetail: ClientContactDetail;
 
   @OneToMany("Invoice", "client")
