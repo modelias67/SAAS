@@ -1,5 +1,5 @@
 {
-  "name": "saas",
+  "name": "saas-backend",
   "private": true,
   "version": "1.0.0",
   "description": "",
@@ -7,6 +7,9 @@
   "scripts": {
     "start": "tsx --env-file=.env src/index.ts",
     "dev": "tsx --env-file=.env --watch src/index.ts",
+    "migrations:show": "tsx --env-file=.env node_modules/typeorm/cli.js migration:show -d src/core/AppDataSource.ts",
+    "migrations:create": "tsx --env-file=.env node_modules/typeorm/cli.js migration:generate migrations -d src/core/AppDataSource.ts",
+    "migrations:run": "tsx --env-file=.env node_modules/typeorm/cli.js migration:run -d src/core/AppDataSource.ts",
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down"
   },
@@ -22,6 +25,7 @@
   "homepage": "https://github.com/modelias67/SAAS#readme",
   "devDependencies": {
     "@types/node": "^24.3.1",
+    "reflect-metadata": "^0.2.2",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2"
   },
@@ -29,6 +33,7 @@
     "@hono/node-server": "^1.19.1",
     "chalk": "^5.6.0",
     "hono": "^4.9.6",
+    "pg": "^8.16.3",
     "typeorm": "^0.3.26"
   }
 }

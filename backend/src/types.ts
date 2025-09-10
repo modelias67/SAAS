@@ -24,12 +24,12 @@ interface ContactDetail {
 interface HeatPump {
   type: string;
   /**
+   * Cycle de soutirage.
+   */
+  drawoffCycle: string;
+  /**
    * float
    */
-  /**
- * Cycle de soutirage.
- */
-  drawoffCycle: string;
   nominalPower: number;
   /**
    * float

@@ -23,9 +23,7 @@ const AppDataSource = new DataSource({
     Item,
     Invoice
   ],
-  migrations: ["backend/migrations/{**,*}.{js,ts}"]
+  migrations: ["migrations/{**,*}.{js,ts}"]
 });
 
-export {
-  AppDataSource
-};
+export default AppDataSource;

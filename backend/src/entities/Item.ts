@@ -10,6 +10,18 @@ import {
 
 @Entity()
 export default class Item {
+  public static create(
+    shortDesignation: string,
+    commercialDesignation: string,
+    supplier: Supplier | null
+  ): Item {
+    const entity = new this();
+    entity.shortDesignation = shortDesignation;
+    entity.commercialDesignation = commercialDesignation;
+    entity.supplier = supplier;
+    return entity;
+  }
+
   @PrimaryGeneratedColumn()
   public id: number;
 
