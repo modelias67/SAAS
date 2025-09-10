@@ -1,4 +1,4 @@
-import apiRouter from "$server/api/v1/api-router.js";
+import apiRouter from "$server/api/v1/index.js";
 import { serve } from "@hono/node-server";
 import chalk from "chalk";
 import { Hono } from "hono";

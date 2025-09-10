@@ -12,6 +12,9 @@ declare global {
   }
 }
 
+type Result<T, E> = [data: T, null] | [null, error: E];
+type AsyncResult<T, E> = Result<T, E>;
+
 interface ContactDetail {
   street: string;
   city: string;
@@ -49,6 +52,8 @@ interface HeatPump {
 }
 
 export type {
+  Result,
+  AsyncResult,
   ContactDetail,
   HeatPump
 };
