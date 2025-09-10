@@ -32,13 +32,15 @@ export default class Invoice {
 
   @ManyToOne("Client", "invoices", {
     nullable: true,
-    onDelete: "SET NULL"
+    onDelete: "SET NULL",
+    eager: true
   })
   public client: Client | null;
 
   @ManyToOne("Item", {
     nullable: true,
-    onDelete: "SET NULL"
+    onDelete: "SET NULL",
+    eager: true
   })
   public item: Item | null;
 }

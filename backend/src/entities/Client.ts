@@ -30,12 +30,13 @@ export default class Client {
 
   @OneToOne("ClientContactDetail", "client", {
     cascade: true,
-    onDelete: "CASCADE"
+    onDelete: "CASCADE",
+    eager: true
   })
   public contactDetail: ClientContactDetail;
 
-  @OneToMany("Invoice", "client")
-  public invoices: Invoice[];
+  @OneToMany("Invoice", "client", { eager: false })
+  public invoices: Promise<Invoice[]>;
 }
 
 type ClientTitle = "M." | "Mme" | "autre";

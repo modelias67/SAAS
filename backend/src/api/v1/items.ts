@@ -48,8 +48,7 @@ itemsRouter.patch("/:id", findItemMiddleware, async (ctx) => {
 
   if (supplierId) {
     const supplierRepository = AppDataSource.getRepository(Supplier);
-    const supplier = await supplierRepository.findOne({ where: { id: supplierId } });
-    item.supplier = supplier;
+    item.supplier = supplierRepository.findOne({ where: { id: supplierId } });
   }
 
   const itemRepository = AppDataSource.getRepository(Item);

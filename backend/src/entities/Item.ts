@@ -18,7 +18,7 @@ export default class Item {
     const entity = new this();
     entity.shortDesignation = shortDesignation;
     entity.commercialDesignation = commercialDesignation;
-    entity.supplier = supplier;
+    entity.supplier = Promise.resolve(supplier);
     return entity;
   }
 
@@ -39,7 +39,8 @@ export default class Item {
 
   @ManyToOne("Supplier", "items", {
     nullable: true,
-    onDelete: "SET NULL"
+    onDelete: "SET NULL",
+    eager: false
   })
-  public supplier: Supplier | null;
+  public supplier: Promise<Supplier | null>;
 }

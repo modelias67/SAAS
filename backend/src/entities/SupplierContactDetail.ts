@@ -25,7 +25,7 @@ export default class SupplierContactDetail implements ContactDetail {
   @Column({ type: "varchar", length: 255, nullable: true })
   public email: string | null;
 
-  @OneToOne("Supplier", "contactDetail")
+  @OneToOne("Supplier", "contactDetail", { eager: false })
   @JoinColumn()
-  public supplier: Supplier;
+  public supplier: Promise<Supplier>;
 }

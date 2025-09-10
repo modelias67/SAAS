@@ -12,10 +12,11 @@ export default class Supplier {
 
   @OneToOne("SupplierContactDetail", "supplier", {
     cascade: true,
-    onDelete: "CASCADE"
+    onDelete: "CASCADE",
+    eager: true
   })
   public contactDetail: SupplierContactDetail;
 
-  @OneToMany("Item", "supplier")
-  public items: Item[];
+  @OneToMany("Item", "supplier", { eager: false })
+  public items: Promise<Item[]>;
 }

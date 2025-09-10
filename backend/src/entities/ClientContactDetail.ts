@@ -25,7 +25,7 @@ export default class ClientContactDetail implements ContactDetail {
   @Column({ type: "varchar", length: 255, nullable: true })
   public email: string | null;
 
-  @OneToOne("Client", "contactDetail")
+  @OneToOne("Client", "contactDetail", { eager: false })
   @JoinColumn()
-  public client: Client;
+  public client: Promise<Client>;
 }
