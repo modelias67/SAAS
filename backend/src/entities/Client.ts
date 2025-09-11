@@ -39,6 +39,6 @@ export default class Client {
   public invoices: Promise<Invoice[]>;
 }
 
-type ClientTitle = "M." | "Mme" | "autre";
-type ClientEntityType = "physique" | "moral";
-type ClientProspectiveStatus = "prospect" | "confirmé";
+export type ClientTitle = "M." | "Mme" | "autre";
+export type ClientEntityType = "physique" | "moral";
+export type ClientProspectiveStatus = "prospect" | "confirmé";

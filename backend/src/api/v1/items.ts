@@ -5,7 +5,7 @@ import { parseItemCreationData, parseItemUpdateData } from "$server/schemas/Item
 import { parseInteger } from "$server/utils/type-formatting.js";
 import { Hono as Router, type MiddlewareHandler } from "hono";
 
-const itemsRouter = new Router<ItemRouterEnv>();
+const itemRouter = new Router<ItemRouterEnv>();
 
 const findItemMiddleware: MiddlewareHandler<ItemRouterEnv, "/:id"> = async (ctx, next) => {
   const [id, parseIdError] = parseInteger(ctx.req.param("id"));
@@ -22,14 +22,14 @@ const findItemMiddleware: MiddlewareHandler<ItemRouterEnv, "/:id"> = async (ctx,
   await next();
 };
 
-itemsRouter.get("/:id", findItemMiddleware, (ctx) => {
+itemRouter.get("/:id", findItemMiddleware, (ctx) => {
   const item = ctx.get("item");
   return item
     ? ctx.json(item)
     : ctx.notFound();
 });
 
-itemsRouter.patch("/:id", findItemMiddleware, async (ctx) => {
+itemRouter.patch("/:id", findItemMiddleware, async (ctx) => {
   const item = ctx.get("item");
 
   if (!item)
@@ -56,7 +56,7 @@ itemsRouter.patch("/:id", findItemMiddleware, async (ctx) => {
   return ctx.json([true, null]);
 });
 
-itemsRouter.delete("/:id", async (ctx) => {
+itemRouter.delete("/:id", async (ctx) => {
   const [id, parseIdError] = parseInteger(ctx.req.param("id"));
 
   if (id === null)
@@ -71,7 +71,7 @@ itemsRouter.delete("/:id", async (ctx) => {
   return ctx.json([true, null]);
 });
 
-itemsRouter.post("/", async (ctx) => {
+itemRouter.post("/", async (ctx) => {
   const body = await ctx.req.json();
   const [data, issues] = parseItemCreationData(body);
 
@@ -100,4 +100,4 @@ type ItemRouterEnv = {
   };
 };
 
-export default itemsRouter;
+export default itemRouter;
