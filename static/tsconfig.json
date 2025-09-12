@@ -5,23 +5,20 @@
     "lib": [
       "ES2022"
     ],
-    "module": "Node18",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
     "skipLibCheck": true,
     /* strictness */
     "strict": true,
     "verbatimModuleSyntax": true,
     "noImplicitAny": true,
     "forceConsistentCasingInFileNames": true,
-    "strictPropertyInitialization": false,
     /* path aliases */
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "$server/*": [
-        "./*"
+      "$client/*": [
+        "./ts/*"
       ]
-    },
-    /* TypeORM */
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    }
   }
 }

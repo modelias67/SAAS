@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    /* lib */
+    "target": "ES2022",
+    "lib": [
+      "ES2022"
+    ],
+    "module": "Node18",
+    "skipLibCheck": true,
+    /* strictness */
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "noImplicitAny": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictPropertyInitialization": false,
+    /* path aliases */
+    "baseUrl": "src",
+    "paths": {
+      "$server/*": [
+        "./*"
+      ]
+    },
+    /* TypeORM */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    /* JSX */
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx"
+  }
+}

@@ -30,5 +30,10 @@
       "  $0",
       "}"
     ]
+  },
+  "Jinja block": {
+    "scope": "jinja-html",
+    "prefix": "blk",
+    "body": "{% block ${1:name} %}$2{% endblock %}$0"
   }
 }
