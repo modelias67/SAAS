@@ -2,27 +2,11 @@ import type { Result } from "$server/types.js";
 import { formatIssues, type SchemaIssue } from "$server/utils/type-formatting.js";
 import * as z from "zod";
 
-const ClientCreationSchema = z.object({
-  firstName: z
+const SupplierCreationSchema = z.object({
+  name: z
     .string("chaine de caractères attendue")
     .nonempty("champ vide non autorisé")
     .max(25, "max. 25 caractères"),
-  lastName: z
-    .string("chaine de caractères attendue")
-    .nonempty("champ vide non autorisé")
-    .max(25, "max. 25 caractères"),
-  title: z.enum(
-    ["M.", "Mme", "autre"],
-    "valeur attendue : \"Mr\" | \"Mme\" | \"autre\""
-  ),
-  entityType: z.enum(
-    ["physique", "moral"],
-    "valeur attendue : \"physique\" | \"moral\""
-  ),
-  prospectiveStatus: z.enum(
-    ["prospect", "confirmé"],
-    "valeur attendue : \"prospect\" | \"confirmé\""
-  ),
   street: z
     .string("chaine de caractères attendue")
     .max(255, "max. 255 caractères"),
@@ -46,23 +30,23 @@ const ClientCreationSchema = z.object({
     .nullable()
 });
 
-const ClientUpdateSchema = ClientCreationSchema.partial();
+const SupplierUpdateSchema = SupplierCreationSchema.partial();
 
-export function parseClientCreationData(data: unknown): Result<ClientCreationData, SchemaIssue[]> {
-  const parseResult = ClientCreationSchema.safeParse(data);
-
-  return parseResult.success
-    ? [parseResult.data, null]
-    : [null, formatIssues(parseResult.error.issues)];
-}
-
-export function parseClientUpdateData(data: unknown): Result<ClientUpdateData, SchemaIssue[]> {
-  const parseResult = ClientUpdateSchema.safeParse(data);
+export function parseSupplierCreationData(data: unknown): Result<SupplierCreationData, SchemaIssue[]> {
+  const parseResult = SupplierCreationSchema.safeParse(data);
 
   return parseResult.success
     ? [parseResult.data, null]
     : [null, formatIssues(parseResult.error.issues)];
 }
 
-type ClientCreationData = z.infer<typeof ClientCreationSchema>;
-type ClientUpdateData = z.infer<typeof ClientUpdateSchema>;
+export function parseSupplierUpdateData(data: unknown): Result<SupplierUpdateData, SchemaIssue[]> {
+  const parseResult = SupplierUpdateSchema.safeParse(data);
+
+  return parseResult.success
+    ? [parseResult.data, null]
+    : [null, formatIssues(parseResult.error.issues)];
+}
+
+type SupplierCreationData = z.infer<typeof SupplierCreationSchema>;
+type SupplierUpdateData = z.infer<typeof SupplierUpdateSchema>;

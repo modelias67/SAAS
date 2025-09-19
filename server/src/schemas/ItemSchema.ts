@@ -4,15 +4,15 @@ import * as z from "zod";
 
 const ItemCreationSchema = z.object({
   shortDesignation: z
-    .string({ error: "chaine de caractères attendue" })
-    .nonempty({ error: "ne peut pas être vide" })
-    .max(100, { error: "max. 100 caractères" }),
+    .string("chaine de caractères attendue")
+    .nonempty("ne peut pas être vide")
+    .max(100, "max. 100 caractères"),
   commercialDesignation: z
-    .string({ error: "chaine de caractères attendue" })
-    .nonempty({ error: "ne peut pas être vide" }),
+    .string("chaine de caractères attendue")
+    .nonempty("ne peut pas être vide"),
   supplierId: z
-    .int({ error: "entier positif attendu" })
-    .positive({ error: "entier positif attendu" })
+    .int("entier positif attendu")
+    .positive("entier positif attendu")
     .nullable()
 });
 
