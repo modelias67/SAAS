@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Administration - Pétanque Noveant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="stylesheet" href="admin-styles.css">
+    <script>
+        // Configuration Tailwind personnalisée
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#425e9b',
+                        'primary-light': '#5a7bc4',
+                        'primary-dark': '#2d4373'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Container principal -->
+    <div class="admin-main-container">
+        <div class="admin-content-wrapper">
+            <!-- Header de la page -->
+            <div class="mb-8">
+                <h1 class="mb-2 text-4xl font-bold text-gray-900">
+                    Administration
+                </h1>
+                <p class="text-lg text-gray-600">
+                    Gérez tous les aspects de votre club de pétanque depuis cette interface centralisée
+                </p>
+            </div>
+
+            <!-- Grille des cartes de gestion -->
+            <div class="admin-cards-grid">
+                <!-- Carte Page d'Accueil -->
+                <div class="admin-stats-card" data-modal="home">
+                    <div class="admin-stats-card-header">
+                        <div class="admin-stats-card-info">
+                            <div class="admin-card-icon">
+                                <i data-lucide="home"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">
+                                    Page d'Accueil
+                                </h3>
+                                <p class="text-sm text-gray-500">
+                                    Gestion du contenu de la page d'accueil
+                                </p>
+                            </div>
+                        </div>
+                        <div class="admin-stats-card-count">
+                            <div class="admin-stats-card-number">
+                                1
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-stats-card-footer">
+                        <span class="admin-stats-card-action">
+                            Cliquer pour gérer →
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Carte Bar -->
+                <div class="admin-stats-card" data-modal="bar">
+                    <div class="admin-stats-card-header">
+                        <div class="admin-stats-card-info">
+                            <div class="admin-card-icon">
+                                <i data-lucide="wine"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">
+                                    Bar
+                                </h3>
+                                <p class="text-sm text-gray-500">
+                                    Gestion des boissons et du stock
+                                </p>
+                            </div>
+                        </div>
+                        <div class="admin-stats-card-count">
+                            <div class="admin-stats-card-number">
+                                12
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-stats-card-footer">
+                        <span class="admin-stats-card-action">
+                            Cliquer pour gérer →
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Carte Membres -->
+                <div class="admin-stats-card" data-modal="membre">
+                    <div class="admin-stats-card-header">
+                        <div class="admin-stats-card-info">
+                            <div class="admin-card-icon">
+                                <i data-lucide="users"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">
+                                    Membres
+                                </h3>
+                                <p class="text-sm text-gray-500">
+                                    Gestion des utilisateurs et rôles
+                                </p>
+                            </div>
+                        </div>
+                        <div class="admin-stats-card-count">
+                            <div class="admin-stats-card-number">
+                                45
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-stats-card-footer">
+                        <span class="admin-stats-card-action">
+                            Cliquer pour gérer →
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Carte Types de Membre -->
+                <div class="admin-stats-card" data-modal="typeMembre">
+                    <div class="admin-stats-card-header">
+                        <div class="admin-stats-card-info">
+                            <div class="admin-card-icon">
+                                <i data-lucide="shield"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">
+                                    Types de Membre
+                                </h3>
+                                <p class="text-sm text-gray-500">
+                                    Gérer les types et droits des membres
+                                </p>
+                            </div>
+                        </div>
+                        <div class="admin-stats-card-count">
+                            <div class="admin-stats-card-number">
+                                5
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-stats-card-footer">
+                        <span class="admin-stats-card-action">
+                            Cliquer pour gérer →
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Carte Événements -->
+                <div class="admin-stats-card" data-modal="evenement">
+                    <div class="admin-stats-card-header">
+                        <div class="admin-stats-card-info">
+                            <div class="admin-card-icon">
+                                <i data-lucide="calendar"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">
+                                    Événements
+                                </h3>
+                                <p class="text-sm text-gray-500">
+                                    Gestion des événements et calendrier
+                                </p>
+                            </div>
+                        </div>
+                        <div class="admin-stats-card-count">
+                            <div class="admin-stats-card-number">
+                                8
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-stats-card-footer">
+                        <span class="admin-stats-card-action">
+                            Cliquer pour gérer →
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Carte Équipes -->
+                <div class="admin-stats-card" data-modal="equipe">
+                    <div class="admin-stats-card-header">
+                        <div class="admin-stats-card-info">
+                            <div class="admin-card-icon">
+                                <i data-lucide="trophy"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">
+                                    Équipes
+                                </h3>
+                                <p class="text-sm text-gray-500">
+                                    Gestion des équipes de pétanque
+                                </p>
+                            </div>
+                        </div>
+                        <div class="admin-stats-card-count">
+                            <div class="admin-stats-card-number">
+                                15
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-stats-card-footer">
+                        <span class="admin-stats-card-action">
+                            Cliquer pour gérer →
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Carte Résultats -->
+                <div class="admin-stats-card" data-modal="resultat">
+                    <div class="admin-stats-card-header">
+                        <div class="admin-stats-card-info">
+                            <div class="admin-card-icon">
+                                <i data-lucide="bar-chart-3"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">
+                                    Résultats
+                                </h3>
+                                <p class="text-sm text-gray-500">
+                                    Gestion des résultats et classements
+                                </p>
+                            </div>
+                        </div>
+                        <div class="admin-stats-card-count">
+                            <div class="admin-stats-card-number">
+                                23
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-stats-card-footer">
+                        <span class="admin-stats-card-action">
+                            Cliquer pour gérer →
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Carte Concours -->
+                <div class="admin-stats-card" data-modal="concours">
+                    <div class="admin-stats-card-header">
+                        <div class="admin-stats-card-info">
+                            <div class="admin-card-icon">
+                                <i data-lucide="trophy"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">
+                                    Concours
+                                </h3>
+                                <p class="text-sm text-gray-500">
+                                    Gestion des concours de pétanque
+                                </p>
+                            </div>
+                        </div>
+                        <div class="admin-stats-card-count">
+                            <div class="admin-stats-card-number">
+                                6
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-stats-card-footer">
+                        <span class="admin-stats-card-action">
+                            Cliquer pour gérer →
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Carte Loto -->
+                <div class="admin-stats-card" data-modal="loto">
+                    <div class="admin-stats-card-header">
+                        <div class="admin-stats-card-info">
+                            <div class="admin-card-icon">
+                                <i data-lucide="gift"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">
+                                    Loto
+                                </h3>
+                                <p class="text-sm text-gray-500">
+                                    Gestion des lotos et tirages
+                                </p>
+                            </div>
+                        </div>
+                        <div class="admin-stats-card-count">
+                            <div class="admin-stats-card-number">
+                                3
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-stats-card-footer">
+                        <span class="admin-stats-card-action">
+                            Cliquer pour gérer →
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de démonstration -->
+    <div id="modal" class="hidden fixed inset-0 z-50 flex justify-center items-center p-4 bg-black bg-opacity-50 backdrop-blur-sm">
+        <div class="admin-modal-card">
+            <div class="flex items-center justify-between pb-4 border-b border-gray-200 mb-6">
+                <div class="flex items-center space-x-3">
+                    <div class="p-2 bg-gray-100 rounded-lg">
+                        <i id="modal-icon" data-lucide="home" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <div>
+                        <h2 id="modal-title" class="text-xl font-semibold text-gray-900">
+                            Gestion
+                        </h2>
+                        <p id="modal-description" class="text-sm text-gray-600">
+                            Description de la section
+                        </p>
+                    </div>
+                </div>
+                <button id="close-modal" class="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="admin-content-card p-6">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">Contenu de la section</h3>
+                    <p class="text-gray-600 mb-4">
+                        Ici vous pouvez ajouter le contenu spécifique à chaque section d'administration.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-medium text-gray-900 mb-2">Fonctionnalité 1</h4>
+                            <p class="text-sm text-gray-600">Description de la fonctionnalité</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-medium text-gray-900 mb-2">Fonctionnalité 2</h4>
+                            <p class="text-sm text-gray-600">Description de la fonctionnalité</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-end space-x-3">
+                    <button class="px-4 py-2 text-gray-700 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors">
+                        Annuler
+                    </button>
+                    <button class="px-4 py-2 text-white bg-primary rounded-lg hover:bg-primary-dark transition-colors">
+                        Sauvegarder
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chargement des icônes Lucide -->
+    <script>
+        lucide.createIcons();
+    </script>
+    
+    <!-- Script JavaScript personnalisé -->
+    <script src="admin-script.js"></script>
+</body>
+</html>

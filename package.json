@@ -1,0 +1,22 @@
+
+
+{
+  "name": "saas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/modelias67/SAAS.git"
+  },
+  "scripts": {
+    "dev": "tailwindcss-cli -i ./frontend/input.css -o ./frontend/style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "tailwindcss-cli": "^0.1.2"
+  }
+}

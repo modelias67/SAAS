@@ -1,0 +1,431 @@
+/* frontend/input.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles personnalisés modernes */
+@layer components {
+    /* Navigation */
+    .nav-container {
+        @apply max-w-6xl mx-auto px-6 py-4 flex justify-between items-center;
+    }
+
+    .nav-logo {
+        @apply text-2xl font-bold text-gray-800 no-underline;
+    }
+
+    .nav-links {
+        @apply flex space-x-8 list-none;
+    }
+
+    .nav-links li a {
+        @apply text-gray-600 hover:text-blue-600 no-underline font-medium transition-colors duration-200;
+    }
+
+    .nav-links li a.active {
+        @apply font-semibold text-blue-600;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        @apply py-20 px-6 text-center;
+    }
+
+    .hero-content {
+        @apply max-w-4xl mx-auto;
+    }
+
+    .hero-title {
+        @apply text-5xl font-bold text-gray-900 mb-6 leading-tight;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero-subtitle {
+        @apply text-xl text-gray-600 font-light;
+    }
+
+    /* Main Content */
+    .main-content {
+        @apply px-6 pb-20;
+    }
+
+    /* Cards Grid */
+    .cards-grid {
+        @apply max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+    }
+
+    /* Feature Cards */
+    .feature-card {
+        @apply bg-white rounded-2xl shadow-lg hover:shadow-2xl cursor-pointer transition-all duration-300 transform hover:-translate-y-2 p-8 border border-gray-100 relative overflow-hidden;
+    }
+
+    .feature-card::before {
+        content: '';
+        @apply absolute top-0 left-0 w-full h-1;
+    }
+
+    .feature-card[data-activity*="clients"]::before {
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .feature-card[data-activity*="devis"]::before {
+        background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .feature-card[data-activity*="factures"]::before {
+        background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    .card-icon {
+        @apply w-16 h-16 rounded-xl flex items-center justify-center mb-6 mx-auto;
+    }
+
+    .card-icon svg {
+        @apply w-8 h-8;
+    }
+
+    .clients-icon {
+        @apply text-white;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .devis-icon {
+        @apply text-white;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .factures-icon {
+        @apply text-white;
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    .card-content {
+        @apply text-center mb-6;
+    }
+
+    .card-title {
+        @apply text-2xl font-bold text-gray-900 mb-3;
+    }
+
+    .card-description {
+        @apply text-gray-600 leading-relaxed;
+    }
+
+    .card-arrow {
+        @apply w-6 h-6 text-gray-400 mx-auto transition-all duration-300;
+    }
+
+    .feature-card:hover .card-arrow {
+        @apply text-blue-500 transform translate-x-1;
+    }
+
+    /* Animations */
+    .feature-card:hover .card-icon {
+        @apply transform scale-110;
+        transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover .card-title {
+        @apply text-blue-600;
+        transition: color 0.3s ease;
+    }
+
+    /* Legacy styles pour compatibilité */
+    .card {
+        @apply bg-white rounded-lg shadow-md p-6 cursor-pointer transition hover:shadow-lg;
+    }
+
+    /* Styles pour les éléments spécifiques */
+    .client-item {
+        @apply p-4 border border-gray-200 rounded-lg mb-2 hover:bg-gray-50 cursor-pointer transition-colors;
+    }
+
+    .devis-item {
+        @apply p-4 border border-blue-200 rounded-lg mb-2 hover:bg-blue-50 cursor-pointer transition-colors;
+    }
+
+    .facture-item {
+        @apply p-4 border border-green-200 rounded-lg mb-2 hover:bg-green-50 cursor-pointer transition-colors;
+    }
+
+    /* Styles pour la page clients */
+    .clients-header {
+        @apply bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 text-white py-12 px-6;
+    }
+
+    .header-content {
+        @apply text-center mb-8;
+    }
+
+    .header-content h1 {
+        @apply text-4xl font-bold mb-2;
+    }
+
+    .header-content p {
+        @apply text-xl opacity-90;
+    }
+
+    .stats-container {
+        @apply flex flex-wrap justify-center gap-6 max-w-4xl mx-auto;
+    }
+
+    .stat-card {
+        @apply bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 flex items-center gap-4 min-w-0 w-48 border border-white border-opacity-20;
+    }
+
+    .stat-icon {
+        @apply w-12 h-12 rounded-lg flex items-center justify-center;
+    }
+
+    .clients-stat .stat-icon {
+        @apply bg-blue-500 bg-opacity-20 text-blue-200;
+    }
+
+    .prospects-stat .stat-icon {
+        @apply bg-purple-500 bg-opacity-20 text-purple-200;
+    }
+
+    .total-stat .stat-icon {
+        @apply bg-pink-500 bg-opacity-20 text-pink-200;
+    }
+
+    .stat-info {
+        @apply flex flex-col;
+    }
+
+    .stat-number {
+        @apply text-2xl font-bold;
+    }
+
+    .stat-label {
+        @apply text-sm opacity-80;
+    }
+
+    .clients-main {
+        @apply max-w-7xl mx-auto px-6 py-8;
+    }
+
+    .actions-bar {
+        @apply flex flex-wrap items-center justify-between gap-4 mb-8 p-6 bg-white rounded-xl shadow-sm border;
+    }
+
+    .search-filter-section {
+        @apply flex flex-wrap items-center gap-4;
+    }
+
+    .search-box {
+        @apply relative;
+    }
+
+    .search-icon {
+        @apply absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400;
+    }
+
+    .search-box input {
+        @apply pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none w-64;
+    }
+
+    .filter-select {
+        @apply px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none bg-white;
+    }
+
+    .add-btn {
+        @apply bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-medium flex items-center gap-2 hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-md hover:shadow-lg;
+    }
+
+    .form-container {
+        @apply mb-8;
+    }
+
+    .form-container.hidden {
+        display: none;
+    }
+
+    .form-card {
+        @apply bg-white rounded-xl shadow-lg border p-6;
+    }
+
+    .form-header {
+        @apply flex items-center justify-between mb-6 pb-4 border-b;
+    }
+
+    .form-header h3 {
+        @apply text-xl font-semibold text-gray-800;
+    }
+
+    .close-btn {
+        @apply p-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-500 hover:text-gray-700;
+    }
+
+    .form-grid {
+        @apply grid grid-cols-1 md:grid-cols-2 gap-4 mb-6;
+    }
+
+    .form-group {
+        @apply flex flex-col;
+    }
+
+    .form-group.full-width {
+        @apply md:col-span-2;
+    }
+
+    .form-group label {
+        @apply text-sm font-medium text-gray-700 mb-1;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        @apply px-3 py-2 border border-gray-300 rounded-lg outline-none;
+        transition: all 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        @apply border-blue-500;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .form-group textarea {
+        resize: vertical;
+    }
+
+    .form-actions {
+        @apply flex items-center justify-end gap-3;
+    }
+
+    .btn-primary {
+        @apply bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-md hover:shadow-lg;
+    }
+
+    .btn-secondary {
+        @apply bg-gray-100 text-gray-700 px-6 py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors;
+    }
+
+    .clients-grid {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+    }
+
+    .client-card {
+        @apply bg-white rounded-xl shadow-md border hover:shadow-lg transition-all duration-200 overflow-hidden;
+    }
+
+    .client-card.client {
+        border-left: 4px solid #3b82f6;
+    }
+
+    .client-card.prospect {
+        border-left: 4px solid #8b5cf6;
+    }
+
+    .client-header {
+        @apply p-4 border-b bg-gray-50;
+    }
+
+    .client-type-badge {
+        @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium;
+    }
+
+    .client-type-badge.client {
+        @apply bg-blue-100 text-blue-800;
+    }
+
+    .client-type-badge.prospect {
+        @apply bg-purple-100 text-purple-800;
+    }
+
+    .client-status-badge {
+        @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ml-2;
+    }
+
+    .client-status-badge.actif {
+        @apply bg-green-100 text-green-800;
+    }
+
+    .client-status-badge.inactif {
+        @apply bg-red-100 text-red-800;
+    }
+
+    .client-body {
+        @apply p-4;
+    }
+
+    .client-name {
+        @apply text-lg font-semibold text-gray-800 mb-1;
+    }
+
+    .client-email {
+        @apply text-gray-600 mb-2;
+    }
+
+    .client-info {
+        @apply text-sm text-gray-500 space-y-1;
+    }
+
+    .client-actions {
+        @apply flex items-center justify-end gap-2 p-4 bg-gray-50 border-t;
+    }
+
+    .action-btn {
+        @apply p-2 rounded-lg transition-colors;
+    }
+
+    .edit-btn {
+        @apply text-blue-600 hover:bg-blue-100;
+    }
+
+    .delete-btn {
+        @apply text-red-600 hover:bg-red-100;
+    }
+
+    .no-data-message {
+        @apply text-center py-12;
+    }
+
+    .no-data-message.hidden {
+        display: none;
+    }
+
+    .no-data-icon {
+        @apply mx-auto mb-4 text-gray-400;
+    }
+
+    .no-data-message h3 {
+        @apply text-xl font-semibold text-gray-800 mb-2;
+    }
+
+    .no-data-message p {
+        @apply text-gray-600 mb-4;
+    }
+
+    .nav-links .active {
+        @apply text-blue-600 font-semibold;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .hero-title {
+            @apply text-4xl;
+        }
+        
+        .hero-subtitle {
+            @apply text-lg;
+        }
+        
+        .feature-card {
+            @apply p-6;
+        }
+        
+        .card-icon {
+            @apply w-12 h-12;
+        }
+        
+        .card-icon svg {
+            @apply w-6 h-6;
+        }
+    }
+}

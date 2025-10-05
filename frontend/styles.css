@@ -1,0 +1,81 @@
+/* Importation des styles Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Style général du corps de la page */
+body {
+    @apply bg-gray-50 text-gray-800 font-sans m-0 p-0;
+}
+
+/* En-tête */
+header {
+    @apply text-center py-8;
+}
+
+header h1 {
+    @apply text-3xl font-bold mb-2;
+}
+
+header p {
+    @apply text-gray-600;
+}
+
+/* Section principale */
+main {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 pb-12;
+}
+
+/* Cartes */
+.card {
+    @apply bg-white rounded-lg shadow-md p-6 cursor-pointer transition hover:shadow-lg;
+}
+
+.card h2 {
+    @apply text-xl font-semibold mb-2;
+}
+
+.card p {
+    @apply text-gray-600;
+}
+
+/* En-tête des pages secondaires */
+header {
+    @apply text-center py-6;
+}
+
+header h1 {
+    @apply text-2xl font-bold;
+}
+
+/* Liste des éléments */
+main ul {
+    @apply px-6 space-y-4;
+}
+
+/* Éléments de liste pour chaque page */
+.client-item,
+.devis-item,
+.facture-item {
+    @apply bg-white p-4 rounded shadow;
+}
+/* Barre de navigation */
+nav {
+    @apply bg-white shadow mb-6;
+}
+
+.nav-container {
+    @apply max-w-5xl mx-auto px-4 py-4 flex justify-between items-center;
+}
+
+.nav-logo {
+    @apply text-xl font-bold text-gray-800 no-underline;
+}
+
+.nav-links {
+    @apply flex space-x-6 list-none;
+}
+
+.nav-links li a {
+    @apply text-gray-600 hover:text-gray-900 no-underline;
+}
